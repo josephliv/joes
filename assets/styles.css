@@ -26,7 +26,7 @@ body {
     --text-color: #111;
     --light-text-color: #FFFADE;
     /* fonts */
-    --title-font: 'Fascinate', cursive;
+    --title-font: 'Rubik Moonrocks', cursive;
     --text-font: 'Roboto', sans-serif;
 }
 
@@ -45,6 +45,7 @@ li {
     font-family: var(--title-font);
 color: var(--title-color);
 text-shadow: 0 0 25px var(--light-text-color);
+text-transform: uppercase;
 }
 .inner-header {
     display: flex;
@@ -168,9 +169,7 @@ text-shadow: 0 0 25px var(--light-text-color);
     background-color: var(--dark-trans);
     color: var(--light-text-color);
 }
-.inner-hero h1 {
-    font-family: 'Fascinate', cursive;
-}
+
 
 .site-sub-title h2 {
     font-size: 1.3em;
@@ -195,6 +194,7 @@ text-shadow: 0 0 25px var(--light-text-color);
     color: var(--title-color);
     text-align: center;
     font-size: 2.3em;
+   text-transform: uppercase;
 }
 
 /* the purpose */
@@ -239,6 +239,8 @@ text-shadow: 0 0 25px var(--light-text-color);
     text-align: center;
     margin: 15px auto;
     font-family: var(--title-font);
+    text-transform: uppercase;
+    color: var(--dark);
 }
 
 .registration-area-inner {
