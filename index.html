@@ -29,7 +29,7 @@
     <script src="assets/script..js" defer></script>
     <title>Joe's Digital Services Website designs in Mocksville 27028</title>
   </head>
-<section class="body-grid">
+
     <div class="top-session">
       <div class="split">
         <div class="light-links">
@@ -69,7 +69,7 @@
         </ul>
       </div>
     </header>
-
+    <section class="body-grid">
     <!-- hero section -->
     <div class="hero">
       <div class="hero-inner">
@@ -135,14 +135,31 @@
     </div>
 
     <!-- side bar -->
-<aside id="side-bar-lt" class="side-bar">
+<aside id="side-bar-lt" class="side-bar posts-area">
       <h3>Recent posts</h3>
+      <div class="posts">
+        <!-- php loop for post titles will go here -->
+        <a class="post-element" href="#">
+          <h3>Post Title pretty long one</h3>
+        </a>
+        <a class="post-element" href="#">
+          <h3>Post Title</h3>
+        </a>
+        <a class="post-element" href="#">
+          <h3>A short title</h3>
+        </a>
+        <a class="post-element" href="#">
+          <h3>Post Title that couldn't be much longer</h3>
+        </a>
+        
+        <!-- php end loop -->
+      </div>
     </aside>
 
     <aside id="side-bar-rt" class="side-bar">
       <!-- side bar links to other pages -->
       <h3>Recent Reviews</h3>
-      <div class="links">
+      <div class="reviews">
         <details>
           <summary>D.A.R.T, Inc - <small>Non-Profit</small></summary>
           <div>
@@ -229,7 +246,7 @@
       </div>
      
     </aside>
-    
+     </section> 
 
     <div class="footer gradient">
       <div class="footer-inner logo">
@@ -251,7 +268,7 @@
       </a>
     </div>
 
-  </section>
+
     <script>
       //Get the button
       var mybutton = document.getElementById("myBtn");
