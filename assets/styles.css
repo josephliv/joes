@@ -5,6 +5,9 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+h1,h2,h3,h4,h5 {padding: 0; margin: 0}
+
 html {
   scroll-behavior: smooth;
 }
@@ -16,13 +19,14 @@ html {
   --primary: #064785;
   --primary-trans: #064785a9;
   --secondary: #98c4f0;
-  --light-section-bg-color: #dfe0df;
+  --light-section-bg-color: #E1F5EE;
   --title-color: #334b49;
   --text-color: #111;
   --light-text-color: #fffade;
   /* fonts */
   --title-font: 'Poppins', sans-serif;
   --text-font: "Jost", sans-serif;
+  --radius: 10px / 40px;
 }
 
 p,
@@ -34,7 +38,7 @@ a {
   text-decoration: none;
 }
 body {
-  background: var(--light-section-bg-color);
+  
   line-height: 1.6;
   margin: 0;
   padding: 0;
@@ -135,7 +139,7 @@ body {
 
 .multi-links a:hover {
   background-color: var(--primary);
-  border-radius: 50px / 10px;
+  border-radius: var(--radius);
   background-color: var(--secondary);
 }
 
@@ -145,20 +149,21 @@ body {
 }
 
 .gradient {
-  background-image: linear-gradient(80deg, var(--secondary), var(--dark));
+  background-image: linear-gradient(80deg, var(--dark), var(--primary));
   background-clip: text;
   color: transparent;
 }
+
 /* Top part with phone, email and social links */
 .top-session {
   /* this area has the class split for the flexbox styling */
   padding: 5px;
-  background-color: var(--primary);
+  background-color: var(--dark);
 }
 
 /* Top header with logo and nav links */
 .header {
-  background-color: #927230;
+  background-color: var(--light-section-bg-color);
 }
 .main-nav {
   margin: 0;
@@ -166,11 +171,9 @@ body {
   list-style: none;
 }
 
-.logo h1 {
-  margin: 0;
-  font-size: 2rem;
-  font-family: var(--title-font);
-  color: var(--title-color);
+.logo img {
+  margin: 5px 0;
+ height: 120px;
 }
 .mobile-menu {display: flex; flex-direction: column;}
 .mobile-menu span {
@@ -182,38 +185,47 @@ body {
   display: none;
  
 }
+/* Only used when in mobile and the menu icon is clicked */
 .is-active {
   display: flex;
   position: absolute;
-  left: 0;
+  left: 0; 
+  top: 95px;
   flex-direction: column;
   align-items: center;
   background-color: var(--dark-trans);
   width: 100%;
+  padding: 10px;
   text-align: center;
+  border: 1px solid white;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 0 15px #333;
 }
-.is-active a:hover {
-  background-color: var(--primary);
-  color: var(--secondary)
-}
+
 .main-nav a {
   text-decoration: none;
   padding: 10px 15px;
   text-transform: capitalize;
   text-align: center;
   display: inline-block;
-  color: var(--light-text-color);
+  color: var(--dark);
   font-size: 0.99em;
   transition: 300ms;
 }
-
+.active-nav {
+  color: var(--dark);
+  background-color: var(--secondary);
+ 
+}
 .main-nav a:hover {
   color: var(--dark);
   background-color: var(--secondary);
-  border-radius: 50px / 10px;
+ 
 }
 
 .header-inner {
+  position: relative;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
   flex-direction: row;
@@ -267,6 +279,7 @@ body {
 @media (min-width: 50em) {
   .hero-inner {
     display: flex;
+    gap: 1rem;
     justify-content: space-between;
     align-items: center;
     max-width: 800px;
@@ -279,7 +292,7 @@ body {
   margin: auto;
   width: 240px;
   border: 3px solid var(--secondary);
-  border-radius: 50px / 10px;
+  border-radius: var(--radius);
   box-shadow: 0 0 15px #333;
 }
 
@@ -307,6 +320,101 @@ body {
   font-size: 1.3em;
   text-transform: capitalize;
 }
+
+/* image styling for the portfolio page */
+.portfolio {
+  display: flex; 
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-around;
+}
+.portfolio img {
+  width: 250px; 
+  height: auto;
+  box-shadow: 0 0 15px #333;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.portfolio img:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 100% !important;
+  max-width: 1200px;
+}
+
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
 
 /* the purpose */
 
@@ -374,13 +482,12 @@ body {
   font-family: var(--text-font);
   color: var(--dark);
   font-size: 1.5em;
+  cursor: pointer;
 }
 
-.reviews {
-  padding: 1.2em;
-}
 .reviews details summary {
   font-size: 1.2em;
+  padding: 15px 5px ;
 }
 .reviews details p {
   font-size: 0.9em;
@@ -394,7 +501,7 @@ details {
   background-color: var(--light-text-color);
   color: var(--text-color);
   margin: 10px auto;
-  padding: 18px;
+  /* padding: 5px 10px; */
   border: none;
   text-align: left;
   outline: none;
@@ -403,7 +510,7 @@ details {
 .posts {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 10px;
 }
 @media only screen and (min-width: 1000px) {
   .post-element {
@@ -411,7 +518,7 @@ details {
   }
 }
 .post-element {
-  padding: 0 5px;
+  padding: 15px 0 ;
   background-color: var(--light-text-color);
   width: 180px;
   flex-grow: 1;
@@ -420,12 +527,13 @@ details {
   background-color: var(--light-section-bg-color);
 }
 .post-element h3 {
-  font-size: 1.2em;
+  font-size: 1em;
 }
 /* Footer element */
 .footer {
   padding: 1.2em;
   color: var(--light-text-color);
+  background-color: var(--dark);
 }
 
 /* footer for tablets */
@@ -434,7 +542,7 @@ details {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1600px;
     margin: auto;
   }
 }

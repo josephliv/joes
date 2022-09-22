@@ -60,18 +60,20 @@
 
     <header class="header">
       <div class="header-inner">
-        <h1 class="logo">
-          <a href="#"><img src="/assets/imgs/Livengood Solutions.png" alt="Livengood Solutions - Business Website Design"> </a>
-        </h1>
+        <div class="logo">
+          <a href="#">
+            <a href="#"><img src="/assets/imgs/Livengood Solutions.png" alt="Livengood Solutions - Business Website Design"> </a>
+           </a>
+        </div>
         <div class="mobile-menu">
           <span></span>
           <span></span>
           <span></span>
         </div>
         <ul class="main-nav">
-          <li><a class="active-nav" href="index.html">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a class="active-nav" href="portfolio.html">Portfolio</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
       </div>
@@ -81,32 +83,41 @@
     <div class="hero">
       <div class="hero-inner">
         <div class="site-title">
-          <h1>Website Designer & Developer In Mocksville, NC & Near By Cities.</h1>
-          <p>
-            Affordable websites and SEO to better present your business. Let me do all the heavy lifting so you can run your business.
-          </p>
+          <h1>Let the passion show through through the work</h1>
+          <h3>
+           Take a look at some of the designs created.
+          </h3>
         </div>
-        <div class="self-img">
-          <img src="https://joes.business/wp-content/uploads/2022/04/Joseph-Livengood.jpeg" alt="Joseph Livengood">
-  </div>
+        
       </div>
     </div>
     <!-- Introduction -->
-    <div class="intro">
-      <h5>
-        My name is Joseph Livengood, and I am a Web Specialist from Mocksville,
-        North Carolina that offers cross-country benefits.
-      </h5>
-      <div class="intro-inner">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, debitis
-          nihil odit necessitatibus tempora quis quos? Sunt nesciunt
-          perspiciatis molestias! Explicabo iusto fugiat architecto tenetur
-          fugit reprehenderit aperiam, earum, dolores molestias incidunt ipsa
-          sunt saepe quidem mollitia? Rem, enim fugit! Ratione, nobis ipsum hic
-          quidem quis aliquid molestias excepturi beatae.
-        </p>
+    <div class="intro portfolio">
+      <div class="site">
+        <img id="myImg" src="/assets/imgs/cohenslaw.png" alt="Mark Cohen | Law Firm"> 
       </div>
+      <!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+      <div class="site">
+        <img src="/assets/imgs/dart-defense.png" alt="dart defense">
+      </div>
+      <div class="site">
+        <img src="/assets/imgs/despe-consulting.png" alt="despe consulting">
+      </div>
+      <div class="site">
+        <img src="/assets/imgs/jampackedsalesevents.png" alt="jampackedsalesevents">
+      </div>
+      <div class="site">
+        <img src="/assets/imgs/liveyoungdierich.png" alt="liveyoungdierich">
+      </div>
+      <div class="site">
+        <img src="/assets/imgs/pams-grooming.png" alt="pams-grooming">
+      </div>
+      
     </div>
     <!-- The purpose -->
     <div class="purpose">
@@ -277,10 +288,10 @@
       </a>
     </div>
 
-
+<!-- Scroll to the top button -->
     <script>
       //Get the button
-      var mybutton = document.getElementById("myBtn");
+      const mybutton = document.getElementById("myBtn");
 
       // When the user scrolls down 20px from the top of the document, show the button
       window.onscroll = function () {
@@ -304,5 +315,27 @@
         document.documentElement.scrollTop = 0;
       }
     </script>
+    <script>
+      // Get the modal
+      const modal = document.getElementById("myModal");
+      
+      // Get the image and insert it inside the modal - use its "alt" text as a caption
+      const img = document.getElementById("myImg");
+      const modalImg = document.getElementById("img01");
+      const captionText = document.getElementById("caption");
+      img.onclick = function(){
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+      }
+      
+      // Get the <span> element that closes the modal
+      const span = document.getElementsByClassName("close")[0];
+      
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() { 
+        modal.style.display = "none";
+      }
+      </script>
   </body>
 </html>
